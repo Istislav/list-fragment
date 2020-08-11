@@ -25,6 +25,7 @@ public class CourseDetailActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "CourseName " + course.getCourseName(), Toast.LENGTH_SHORT).show();
 
             CourseDetailFragment fragment = new CourseDetailFragment();
+            fragment.setArguments(extra);
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             fragmentManager.beginTransaction().add(R.id.detailContainer, fragment).commit();

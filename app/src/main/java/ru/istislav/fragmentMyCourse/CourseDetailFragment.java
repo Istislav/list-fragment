@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ru.istislav.fragmentMyCourse.data.Course;
+import ru.istislav.fragmentMyCourse.data.CourseData;
 
 public class CourseDetailFragment extends Fragment {
     Course course;
@@ -19,6 +20,18 @@ public class CourseDetailFragment extends Fragment {
     // required no-args constuctor
     public CourseDetailFragment() {
 
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle bundle = getArguments();
+        if (bundle != null && bundle.containsKey("course_id")) {
+            int position = bundle.getInt("course_id");
+
+            course = new CourseData().courseList().get(position);
+        }
     }
 
     @Nullable
