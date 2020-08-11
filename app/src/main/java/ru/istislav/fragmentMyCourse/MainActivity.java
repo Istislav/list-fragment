@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.myContainer);
-        if (fragment == null) {
-            fragment = new CourseListFragment();
-            fm.beginTransaction().add(R.id.myContainer, fragment).commit();
-        }
+//        FragmentManager fm = getSupportFragmentManager();
+//        Fragment fragment = fm.findFragmentById(R.id.myContainer);
+//        if (fragment == null) {
+//            fragment = new CourseListFragment();
+//            fm.beginTransaction().add(R.id.myContainer, fragment).commit();
+//        }
+
+
     }
 }
