@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyCourseListFragment</string>
+    <string name="course_item_text">Course 1</string>
 </resources>
