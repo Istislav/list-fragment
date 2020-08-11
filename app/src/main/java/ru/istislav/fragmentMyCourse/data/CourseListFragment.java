@@ -51,7 +51,7 @@ public class CourseListFragment extends ListFragment {
     }
 
     public interface Callbacks {
-        public void onItemSelected(Course course);
+        public void onItemSelected(Course course, int position);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class CourseListFragment extends ListFragment {
         //Toast.makeText(getActivity(), "Position " +  position + ", Name " + course.getCourseName(), Toast.LENGTH_SHORT).show();
 
         // startActivity(new Intent(this, CourseDetailActivity.class)); - it is without fragments
-        this.activity.onItemSelected(course);
+        this.activity.onItemSelected(course, position);
     }
 
     @Override
