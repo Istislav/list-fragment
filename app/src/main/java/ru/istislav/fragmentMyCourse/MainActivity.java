@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
+import ru.istislav.fragmentMyCourse.data.Course;
 import ru.istislav.fragmentMyCourse.data.CourseListFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CourseListFragment.Callbacks {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,4 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onItemSelected(Course course) {
+        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();;
+    }
+
 }

@@ -1,10 +1,14 @@
 package ru.istislav.fragmentMyCourse.data;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,11 +16,13 @@ import androidx.fragment.app.ListFragment;
 
 import java.util.List;
 
+import ru.istislav.fragmentMyCourse.CourseDetailActivity;
 import ru.istislav.fragmentMyCourse.R;
 import ru.istislav.fragmentMyCourse.util.ScreenUtility;
 
 public class CourseListFragment extends ListFragment {
     List<Course> courses = new CourseData().courseList();
+    private Callbacks activity;
 
     public CourseListFragment() {
 
@@ -42,5 +48,26 @@ public class CourseListFragment extends ListFragment {
 
         View view = inflater.inflate(R.layout.course_list_fragment, container, false);
         return view;
+    }
+
+    public interface Callbacks {
+        public void onItemSelected(Course course);
+    }
+
+    @Override
+    public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
+        //super.onListItemClick(l, v, position, id);
+        Course course = courses.get(position);
+
+        //Toast.makeText(getActivity(), "Position " +  position + ", Name " + course.getCourseName(), Toast.LENGTH_SHORT).show();
+
+        // startActivity(new Intent(this, CourseDetailActivity.class)); - it is without fragments
+        this.activity.onItemSelected(course);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.activity = (Callbacks) context;
     }
 }
