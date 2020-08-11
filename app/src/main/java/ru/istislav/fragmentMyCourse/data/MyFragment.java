@@ -1,6 +1,7 @@
 package ru.istislav.fragmentMyCourse.data;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.fragment.app.ListFragment;
 import java.util.List;
 
 import ru.istislav.fragmentMyCourse.R;
+import ru.istislav.fragmentMyCourse.util.ScreenUtility;
 
 public class MyFragment extends ListFragment {
     List<Course> courses = new CourseData().courseList();
@@ -24,6 +26,10 @@ public class MyFragment extends ListFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ScreenUtility screenUtility = new ScreenUtility(getActivity());
+
+        Log.d("Width", String.valueOf(screenUtility.getDpWidth()));
 
         CourseArrayAdapter adapter = new CourseArrayAdapter(getActivity(), R.layout.course_listitem, courses);
 
