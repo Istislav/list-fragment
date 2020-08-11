@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-import ru.istislav.fragmentMyCourse.data.MyFragment;
+import ru.istislav.fragmentMyCourse.data.CourseListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.myContainer);
         if (fragment == null) {
-            fragment = new MyFragment();
+            fragment = new CourseListFragment();
             fm.beginTransaction().add(R.id.myContainer, fragment).commit();
         }
     }

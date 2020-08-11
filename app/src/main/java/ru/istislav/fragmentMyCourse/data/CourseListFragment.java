@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
 import java.util.List;
@@ -16,10 +15,10 @@ import java.util.List;
 import ru.istislav.fragmentMyCourse.R;
 import ru.istislav.fragmentMyCourse.util.ScreenUtility;
 
-public class MyFragment extends ListFragment {
+public class CourseListFragment extends ListFragment {
     List<Course> courses = new CourseData().courseList();
 
-    public MyFragment() {
+    public CourseListFragment() {
 
     }
 
@@ -41,7 +40,7 @@ public class MyFragment extends ListFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.my_fragment, container, false);
+        View view = inflater.inflate(R.layout.course_list_fragment, container, false);
         return view;
     }
 }
